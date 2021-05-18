@@ -1,0 +1,102 @@
+{% extends 'base1.html' %}
+
+
+{% block content %}
+{% load cart %}
+{% load custom_filter %}
+<!-- banner -->
+<div class="banner-bg-inner">
+    <!-- banner-text -->
+    <div class="banner-text-inner">
+        <div class="container">
+            <h2 class="title-inner">
+                world of reading
+            </h2>
+
+        </div>
+    </div>
+    <!-- //banner-text -->
+</div>
+<!-- //banner -->
+
+<!-- breadcrumbs -->
+<div class="crumbs text-center">
+    <div class="container">
+        <div class="row">
+            <ul class="btn-group btn-breadcrumb bc-list">
+                <li class="btn btn1">
+                    <a href="index.html">
+                        <i class="glyphicon glyphicon-home"></i>
+                    </a>
+                </li>
+                <li class="btn btn2">
+                    <a href="shop.html">Product Catalogue</a>
+                </li>
+                <li class="btn btn3 btn3a">
+                    <a href="single_product.html">Single product</a>
+                </li>
+                <li class="btn btn4">
+                    <a href="checkout.html">Checkout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--//breadcrumbs ends here-->
+<!--checkout-->
+<div class="innerf-pages section">
+    <div class="container">
+        <div class="privacy about">
+            <h4 class="rad-txt">
+                <span class="abtxt1">review</span>
+                <span class="abtext">your order</span>
+            </h4>
+
+            <div class="checkout-right">
+                <table class="timetable_sub table-responsive">
+                    <thead>
+                   <tr>
+                    <th>Sno.</th>
+                    <th width="200px">Product</th>
+                    <th width="200px">Product name</th>
+                    <th>Date</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+                    </thead>
+                    <tbody>
+                   {% for order in orders %}
+                    <tr class="rem1">
+                        <td class="invert">{{forloop.counter}}</td>
+                        <td class="invert-image">
+                            <a href="/singleproduct">
+                                <img src="{{order.product.image.url}}" style="height: 80px;" alt=" " class="img-responsive">
+                            </a>
+                        </td>
+                        <td class="invert">{{order.product.title}}</td>
+                        <td class="invert">{{order.date}}</td>
+                         <td class="invert">{{order.price|currency}}</td>
+                        <td class="invert">
+                            <div class="quantity">
+                                <div class="quantity-select">
+                                    <div class="entry value">
+                                        <span style="font-weight:bold">{{order.quantity}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="invert">{{order.quantity|multiply:order.price|currency}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//checkout-->
+{% endblock %}

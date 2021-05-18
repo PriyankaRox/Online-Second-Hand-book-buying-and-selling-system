@@ -1,0 +1,126 @@
+<!-- signup page-->
+
+
+{% extends 'base1.html' %}
+{% block content %}
+<div class="banner-bg-inner">
+            <!-- banner-text -->
+            <div class="banner-text-inner">
+                <div class="container">
+                    <h2 class="title-inner">
+                        world of reading
+                    </h2>
+
+                </div>
+            </div>
+            <!-- //banner-text -->
+        </div>
+        <!-- //banner -->
+<div class="crumbs text-center">
+            <div class="container">
+                <div class="row">
+                    <ul class="btn-group btn-breadcrumb bc-list">
+                        <li class="btn btn1">
+                            <a href="/">
+                                <i class="glyphicon glyphicon-home"></i>
+                            </a>
+                        </li>
+                        <li class="btn btn2">
+                            <a href="/login">sign in</a>
+                            <a href="/signup">& sign up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<div class="container ">
+    <div class="p-6 m-6">
+        <div class="col-lg-8 rounded mx-auto border pt-6 ">
+            <div class="text-center col">
+                <img
+                src="https://media.istockphoto.com/vectors/people-climbing-books-isolated-on-white-background-vector-vector-id1133537960?k=6&m=1133537960&s=612x612&w=0&h=vj-3lCuH7zFDoyFsB71N7iCfL036j7NM2h73sYTwyNY=" alt=""
+                class="" style="height: 200px;">
+            <!-- <hr>
+            <div class="display-8"><b>Create An Account</b></div>-->
+                <h4 class="rad-txt">
+                    <span class="abtxt1">Sign In</span>
+                    <span class="abtext">sign up</span>
+                </h4>
+            <hr>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Sign Up</div>
+                    <div style="float:right; font-size: 85%; position: relative; top:-10px">
+                    <a id="signinlink" href="/login" >Log In</a>
+                </div>
+            </div>
+            <div class="panel-body">
+            <form action="/signup" class="form-horizontal" method="POST">
+                {% csrf_token %} <!-- cross site request frogery protection -->
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- firstname -->
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">First Name</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <input type="text" class="form-control" name="firstname" value="{{values.first_name}}"
+                               id="" placeholder="First Name" required="">
+                    </div>
+                </div>
+
+                <!-- last name -->
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Last Name</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <input type="text" class="form-control" name="lastname"
+                               id="" value="{{values.last_name}}"
+                               placeholder="Last Name" required="">
+                    </div>
+                </div>
+                <!-- phone -->
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Phone</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                    <input type="text" name="phone" id="" class="form-control" required=""
+                    value="{{values.phone}}" placeholder="10 digit mobile number">
+                    </div>
+                </div>
+                <!-- email -->
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Email</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <input required type="email" name="email" id=""
+                        value="{{values.email}}" required=""
+                        class="form-control" placeholder="example@gmail.com">
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Password</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <input type="password" name="password"
+                         id="" required=""
+                         class="form-control" placeholder="********">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- Button -->
+                    <div class="signup-btn">
+                        <div class="signup-btn" style="text-align:center;">
+                            <input class="btn btn-info" type="submit" value="Create An Account">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+    </div>
+
+{% endblock %}

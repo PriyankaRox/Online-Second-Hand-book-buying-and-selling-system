@@ -1,0 +1,83 @@
+<!-- signup page-->
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container ">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 rounded mx-auto border pt-4 ">
+            <div class="text-center col">
+                <img
+                src="https://media.istockphoto.com/vectors/people-climbing-books-isolated-on-white-background-vector-vector-id1133537960?k=6&m=1133537960&s=612x612&w=0&h=vj-3lCuH7zFDoyFsB71N7iCfL036j7NM2h73sYTwyNY=" alt=""
+                class="" style="height: 200px;">
+            <!-- <hr>
+            <div class="display-8"><b>Create An Account</b></div>-->
+                <h4 class="rad-txt">
+                    <span class="abtxt1"></span>
+                    <span class="abtext">sign up</span>
+                </h4>
+            <hr>
+            </div>
+            <h3 hidden class="alert alert-light border rounded">Create An Account</h3>
+            <form action="/signup" method="POST">
+                {% csrf_token %} <!-- cross site request frogery protection -->
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- firstname -->
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname"
+                     id="" value="{{values.first_name}}" class="form-control form-control-sm" placeholder="firstname">
+                </div>
+
+                <!-- last name -->
+                <div class="form-group ">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname"
+                    id="" value="{{values.last_name}}" class="form-control form-control-sm" placeholder="lastname">
+                </div>
+
+                <!-- phone -->
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone"
+                    id="" class="form-control form-control-sm"
+                    value="{{values.phone}}"
+                    placeholder="10 digit mobile number"
+                    >
+                </div>
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}"
+                    class=" form-control-sm form-control" placeholder="example@gmail.com">
+                </div>
+
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password"
+                    name="password"
+                    id=""
+                     class="form-control form-control-sm" placeholder="********">
+                </div>
+
+
+                <div class="form-group">
+                    <input class="btn btn-sm btn-info" type="submit" value="Create An Account ">
+                </div>
+
+
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

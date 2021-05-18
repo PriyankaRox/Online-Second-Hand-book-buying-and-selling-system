@@ -1,0 +1,306 @@
+{% extends 'base1.html' %}
+{% block content %}
+                    </div>
+                    <!-- /.navbar-collapse -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- /.container -->
+            </div>
+        </nav>
+        <!-- //navbar ends here -->
+        <!-- banner -->
+        <div class="banner-bg-agileits">
+            <!-- banner-text -->
+            <div class="banner-text">
+                <div class="container">
+                    <p class="b-txt">the</p>
+                    <h2 class="title">
+                        Book Biz
+                    </h2>
+                    <ul class="banner-txt">
+                        <li>share.</li>
+                        <li> explore. </li>
+                        <li>amplify.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- //banner-text -->
+        </div>
+        <!-- //banner -->
+<!---my book list  -->
+<!--
+		<div class="crumbs text-center">
+			<div class="container">
+				<div class="row">
+					<ul class="btn-group btn-breadcrumb bc-list">
+						<li class="btn btn1">
+							<a href="index.html">
+								<i class="glyphicon glyphicon-home"></i>
+							</a>
+						</li>
+						<li class="btn btn2">
+							<a href="shop.html">product catalogue</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>-->
+		<!--//breadcrumbs ends here-->
+		<!-- Shop -->
+	<!--	<div class="innerf-pages section">
+			<div class="container-cart">
+				<div class="side-bar col-md-3">
+					<div class="left-side">
+						<h3 class="shopf-sear-headits-sear-head">
+							Categories</h3>
+						<ul>
+							<li>
+								<input type="checkbox" class="checked">
+								<span class="span">Novel</span>
+							</li>
+							<li>
+								<input type="checkbox" class="checked">
+								<span class="span">Fiction</span>
+							</li>
+							<li>
+								<input type="checkbox" class="checked">
+								<span class="span">Text Books</span>
+							</li>
+							<li>
+								<input type="checkbox" class="checked">
+								<span class="span">Comics</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				{% for product in products %}
+				<div class="left-ads-display col-md-9">
+					<div class="wrapper_top_shop">
+						<div class="product-sec1">
+							<div class="col-md-3 product-men">
+								<div class="product-chr-info chr">
+									<div class="thumbnail">
+										<a href="single_product.html">
+											<img src="{{product.image.url}}" alt="">
+										</a>
+									</div>
+									<div class="caption">
+										<h4>{{product.title}}</h4>
+										<p>{{product.author}}</p>
+										<div class="matrlf-mid">
+											<ul class="rating">
+												<li>
+													<a href="#">
+														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span class="fa fa-star gray-star" aria-hidden="true"></span>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span class="fa fa-star gray-star" aria-hidden="true"></span>
+													</a>
+												</li>
+											</ul>
+											<ul class="price-list">
+												<li>{{product.price}}</li>
+
+											</ul>
+
+											<div class="clearfix"> </div>
+										</div>
+										<form action="#" method="post">
+											<input type="hidden" name="cmd" value="_cart">
+											<input type="hidden" name="add" value="1">
+											<input type="hidden" name="chr_item" value="Book1">
+											<input type="hidden" name="amount" value="100.00">
+											<button type="submit" class="chr-cart pchr-cart">Add to cart
+												<i class="fa fa-cart-plus" aria-hidden="true"></i>
+											</button>
+											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+										</form>
+									</div>
+								</div>
+							</div>
+							{% endfor %} -->
+        <!-- about -->
+        <div class="about-sec section" id="about">
+            <div class="container width:100px; margin-left-10px;">
+                <!-- about-left-grid -->
+                <div class="col-md-7 about-left-grid">
+                    <div class="inner-about2">
+                        <h4>The Book Look</h4>
+                        <p>Looking for your next great read?</p>
+                        <h5>Books4U</h5>
+                        <ul class="about-list">
+                            <li>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>Novels</li>
+                            <li>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>Comics</li>
+                            <li>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>Fiction</li>
+                            <li>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>Text Books</li>
+                            <li>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>Magzines</li>
+                            <li>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>Fantacy</li>
+                            <li>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>Horror</li>
+
+                        </ul>
+                        <!--<a href="#">view more</a>-->
+                    </div>
+                    <!-- about left bottom - services -->
+                    <div class="principles-grids principles-grids1">
+                        <div class="abt-btm agileits w3layouts aos-init aos-animate">
+                            <div class="col-md-6 col-sm-6 agileits elite-services1 w3layouts bottom-gds" data-aos="fade-up">
+                                <div class="bott-img agileits w3layouts">
+                                    <div class="icon-holder agileits w3layouts">
+                                        <span class="fa fa-book agileits w3layouts service-icon" aria-hidden="true"></span>
+                                    </div>
+                                    <h4 class="mission agileits w3layouts">Buy Books</h4>
+                                    <div class="description agileits w3layouts">
+                                        <a href="/shop">Gain Knowledge!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 agileits elite-services2 w3layouts bottom-gds" data-aos="fade-down">
+                                <div class="bott-img bott-img1 agileits w3layouts">
+                                    <div class="icon-holder agileits w3layouts">
+                                        <span class="fa fa-book agileits w3layouts service-icon" aria-hidden="true"></span>
+                                    </div>
+                                    <h4 class="mission agileits w3layouts">Sell Books</h4>
+                                    <div class="description agileits w3layouts">
+                                        <a href="#">Earn Money!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <!-- //about left bottom - services ends here -->
+                </div>
+                <!-- //about-left-grid ends here-->
+                <!-- about-right-grid -->
+                <div class="col-md-5 about-right-grid"></div>
+                <!-- //about-right-grid ends here -->
+                <div class="clearfix"></div>
+            </div>
+        </div>
+                        </div>
+                    </div>
+
+            </div>
+            <!-- // team container ends here -->
+        </div>
+                        </div>
+                    </div>
+
+        <!-- //footer-layouts -->
+        <!-- footer -->
+        <div class="footer-bottom section">
+            <div class="container">
+                <!-- newsletter -->
+                <!<div class="subscribe-main section-w3layouts text-center">
+                    <h4 class="rad-txt">
+                        <span class="abtxt1">keep yourself</span>
+                        <span class="abtext">updated</span>
+                    </h4>
+                <!-- //newsletter ends here -->
+                <!-- footer grids-->
+                <div class="footer-cpy">
+                    <!-- footer-grid1 -->
+                    <div class="col-md-3 col-sm-6 footer-logo">
+                        <h3>
+                            <a href="/">The Book Biz !</a>
+                        </h3>
+                        <h4>about us</h4>
+                        <p>E-commerce website for online buying and selling of second hand books.</p>
+                    </div>
+                    <!-- //footer-grid1 -->
+                    <!-- footer-grid2 -->
+                    <div class="col-md-3 col-sm-6 footer-nav text-center">
+                        <h4>navigation</h4>
+                        <ul>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="/aboutl">About us</a>
+                            </li>
+                            <li>
+                                <a href="/shop">shop</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- //footer-grid3 -->
+                    <!-- footer-grid4 -->
+                    <div class="col-md-3 col-sm-6 contact-foot text-right">
+                        <h4>contact us</h4>
+                        <ul>
+                            <li>
+                                <span class="fa fa-home"></span>
+                                Gandhi nagar Dharwad Karnataka
+                                <br> India
+                            </li>
+                            <li>
+                                <span class="fa fa-phone"></span>
+                                9898767654
+                            </li>
+                            <li>
+                                <span class="fa fa-envelope"></span>
+                                thebookbiz@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //footer-grid4 -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //footer-grids -->
+                <!-- footer social -->
+                <div class="footer-social text-center">
+                    <h4>stay connected</h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-facebook icon_facebook"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-twitter icon_twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-instagram icon_instagram"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-google-plus icon_g_plus"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //footer social -->
+            </div>
+            <!-- //footer container -->
+        </div>
+        </div>
+{% endblock %}

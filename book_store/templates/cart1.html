@@ -1,0 +1,284 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+{% load cart %}
+{% load custom_filter %}
+<!-- banner -->
+<div class="banner-bg-inner">
+    <!-- banner-text -->
+    <div class="banner-text-inner">
+        <div class="container">
+            <h2 class="title-inner">
+                world of reading
+            </h2>
+
+        </div>
+    </div>
+    <!-- //banner-text -->
+</div>
+<!-- //banner -->
+<!-- breadcrumbs -->
+<div class="crumbs text-center">
+    <div class="container">
+        <div class="row">
+            <ul class="btn-group btn-breadcrumb bc-list">
+                <li class="btn btn1">
+                    <a href="index.html">
+                        <i class="glyphicon glyphicon-home"></i>
+                    </a>
+                </li>
+                <li class="btn btn2">
+                    <a href="/shop">Product Catalogue</a>
+                </li>
+                <li class="btn btn3 btn3a">
+                    <a href="/singleproduct">Single product</a>
+                </li>
+                <li class="btn btn4">
+                    <a href="/cart1">Cart</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--//breadcrumbs ends here-->
+<!--cart-->
+<div class="innerf-pages section">
+    <div class="container">
+        <div class="privacy about">
+            <h4 class="rad-txt">
+                <span class="abtxt1">My</span>
+                <span class="abtext">Cart</span>
+            </h4>
+
+            <div class="checkout-right">
+                <h4>Your shopping cart contains
+                </h4>
+                <table class="timetable_sub table-responsive">
+                    <thead>
+                    <tr>
+                        <th>SL No.</th>
+                        <th width="200px">Product</th>
+                        <th width="200px">Product Name</th>
+                        <th width="160px">Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in products %}
+                    <tr class="rem1">
+                        <td class="invert">{{forloop.counter}}</td>
+                        <td class="invert-image">
+                            <a href="/singleproduct">
+                                <img src="{{product.image.url}}" style="height: 80px;" alt=" " class="img-responsive">
+                            </a>
+                        </td>
+                        <td class="invert">{{product.title}}</td>
+                        <td class="invert">
+                            <div class="quantity">
+                                {% if product|is_in_cart:request.session.cart %}
+                                <div class="quantity-select">
+                                    <form action="/cart1#{{product.id}}" method="post">
+                                        {% csrf_token %}
+                                        <input hidden type="text" name='product' value='{{product.id}}'>
+                                        <input hidden type="text" name='remove' value='True'>
+                                        <input type="submit" value=" - " style="width:60px"
+                                               class="btn btn-block btn-light border-right ">
+                                    </form>
+                                    <!--<div class="entry value-minus">&nbsp;</div>-->
+                                    <div class="entry value">
+                                        <span style="font-weight:bold">{{product|cart_quantity:request.session.cart}}</span>
+                                    </div>
+                                    <form action="/cart1#{{product.id}}" class="col-2 " method="post">
+                                        {% csrf_token %}
+                                        <input hidden type="text" name='product' value='{{product.id}}'>
+                                        <input type="submit" value=" + " style="width:60px"
+                                               class="btn btn-block btn-light border-left">
+                                    </form>
+                                    <!--<div class="entry value-plus active">&nbsp;</div>-->
+                                </div>
+                                {% else %}
+                                <form action="/#{{product.id}}" method="POST" class="btn-block">
+                                    {% csrf_token %}
+                                    <input hidden type="text" name='product' value='{{product.id}}'>
+
+                                </form>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="invert">{{product.price|currency}}</td>
+                        <td class="invert">{{product|price_total:request.session.cart|currency}}</td>
+                        <td class="invert">
+                            <div class="rem">
+                                <div class="close1 text-center">
+                                    <form action="/cart1#{{product.id}}" method="post">
+                                        {% csrf_token %}
+                                        <input hidden type="text" name='product' value='{{product.id}}'>
+                                        <input hidden type="text" name='remove' value='True'>
+                                        <input type="submit" value=" ❌ " style="width:60px"
+                                               class="btn btn-block btn-light ">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="4"></th>
+                        <th>Total</th>
+                        <th>{{products|total_cart_price:request.session.cart|currency}}</th>
+                        <th></th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="checkout-left">
+                <div class="col-md-4 address_form">
+                    <div class="creditly-wrapper wrapper">
+                        <div class="information-wrapper ">
+                            <div class="col-lg-2 m-2 p-2 "></div>
+
+                            <a href="#" data-toggle="modal" data-target="#exampleModal"
+                               class="btn btn-outline-info border rounded col-lg-4 float-right"
+                               style="background-color:#348017;color:black"><b>Check out</b></a>
+
+                            <!--<a class="col-lg-6 submit check_out btn btn-outline-info border rounded float-right"
+                               style="background-color:#348017;color:black"
+                               href="#"><b>Check Out</b></a>-->
+                            <!-- <button class="col-lg-6 submit check_out">Check Out</button>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                 <div class="checkout-left">
+                <div class="col-md-4 checkout-left-basket">
+                    <h4>Continue to basket</h4>
+                    <ul>
+                        <li>Be Creative
+                            <i>-</i>
+                            <span>₹100.00 </span>
+                        </li>
+                        <li>Work From Home
+                            <i>-</i>
+                            <span>₹80.00 </span>
+                        </li>
+                        <li>E-Commerce
+                            <i>-</i>
+                            <span>₹120.00 </span>
+                        </li>
+                        <li>Total Service Charges
+                            <i>-</i>
+                            <span>₹55.00</span>
+                        </li>
+                        <li>Total
+                            <i>-</i>
+                            <span>₹355.00</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-8 address_form">
+                    <h4>Alternative billing Address</h4>
+
+                    <form action="payment.html" method="post" class="creditly-card-form shopf-sear-headinfo_form">
+                        <div class="creditly-wrapper wrapper">
+                            <div class="information-wrapper">
+                                <div class="first-row form-group">
+                                    {% for customer in customers %}
+                                    <div class="controls">
+                                        <label class="control-label">Full name:{{order.customer.first_name}} </label>
+                                    </div>
+                                    {% endfor %}
+                                    <div class="card_number_grids">
+                                        <div class="card_number_grid_left">
+                                            <div class="controls">
+                                                <label class="control-label">Mobile number:</label>
+                                                <input class="form-control" type="text" placeholder="Mobile number">
+                                            </div>
+                                        </div>
+                                        <div class="card_number_grid_right">
+                                            <div class="controls">
+                                                <label class="control-label">Landmark: </label>
+                                                <input class="form-control" type="text" placeholder="Landmark">
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="controls">
+                                        <label class="control-label">Town/City: </label>
+                                        <input class="form-control" type="text" placeholder="Town/City">
+                                    </div>
+                                    <div class="controls">
+                                        <label class="control-label">Address type: </label>
+                                        <select class="form-control option-fieldf">
+                                            <option>Office</option>
+                                            <option>Home</option>
+                                            <option>Commercial</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--<a class="col-lg-2" href="/payment"
+                                style="background-color:#348017;color:black;height:30px">
+                                    <b>Place Order</b></a>
+                                <a class="col-lg-6 submit check_out btn btn-outline-info border rounded float-right"
+                               style="background-color:#348017;color:black"
+                               href="/payment"><b>Place Order</b></a>
+                                <button class="submit check_out">place order</button>-->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--//cart-->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Check Out Form
+                </h5>
+                <hr>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="m-2 p-3">
+                    <form action="/checkout" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="">Address</label>
+                            <input type="text" name="address" id="" class="form-control" placeholder="address"
+                                  required aria-describedby="helpId">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Pin code</label>
+                            <input type="text" name="phone" id="" class="form-control" placeholder="pincode"
+                                   aria-describedby="helpId" required>
+                        </div>
+                        <a class="col-lg-6 submit check_out btn btn-outline-info border rounded float-right"
+                           style="background-color:#348017;color:black"
+                           href="/payment"><b>Check Out</b></a>
+                        <!-- <input type="submit" class="btn float-right btn-outline-info col-lg-6" value="Check out">-->
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Modal -->
+
+{% endblock %}

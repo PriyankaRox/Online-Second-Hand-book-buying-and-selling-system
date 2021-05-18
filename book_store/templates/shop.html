@@ -1,0 +1,168 @@
+{% extends 'base1.html' %}
+{% block content %}
+{% load cart %}
+
+					<!-- /.navbar-collapse -->
+					<div class="clearfix"></div>
+				</div>
+				<!-- /.container -->
+			</div>
+		</nav>
+		<!-- //navbar ends here -->
+
+		<div class="banner-bg-inner">
+
+			<div class="banner-text-inner">
+				<div class="container">
+					<h2 class="title-inner">
+						world of reading
+					</h2>
+
+				</div>
+			</div>
+
+		</div>
+		<!-- //banner -->
+		<!-- breadcrumbs -->
+		<div class="crumbs text-center">
+			<div class="container">
+				<div class="row">
+					<ul class="btn-group btn-breadcrumb bc-list">
+						<li class="btn btn1">
+							<a href="/">
+								<i class="glyphicon glyphicon-home"></i>
+							</a>
+						</li>
+						<li class="btn btn2">
+							<a href="/shop">product catalogue</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--//breadcrumbs ends here-->
+		<!-- Shop -->
+		<div class="innerf-pages section" >
+			<div class="container-cart">
+				<!-- product left -->
+				<div class="side-bar col-md-3" style="background-color:#FFE5B4">
+					<!--preference -->
+					<!--<div class="col-lg-3 mx-auto">
+        				<div class="list-group">
+            				<a href="/" class="list-group-item list-group-item-action">All Books</a>
+                			{% for category in categories %}
+								<a href="/?category={{category.id}}" class="list-group-item list-group-item-action">{{category.name}}</a>
+                			{% endfor %}
+						</div>
+      				</div>-->
+					<div class="left-side" >
+						<h3 class="shopf-sear-headits-sear-head" style="color:white;font-weight:bold;font-size:25px;background-color:#4CC552;">
+							Categories</h3>
+						<ul>
+							<li>
+							<a class="list-group-item list-group-item-action" href="/shop" style="color:black;font-weight:bold;background-color:#FFDB58;">All Books</a>
+								</li>
+							{% for category in categories %}
+							<li>
+								<a class="list-group-item list-group-item-action" href="/shop?category={{category.id}}" style="color:black;font-weight:bold;background-color:#FFDB58;">{{category.name}}</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<!-- // preference -->
+				</div>
+				<!-- //product left -->
+				<!-- product right -->
+				<div class="left-ads-display col-md-9" >
+					<div class="wrapper_top_shop" >
+						<!-- product-sec1 -->
+						{% for product in products %}
+						<div class="product-sec1 " >
+							<!-- row1 -->
+							<div class="col-md-3 mx-auto product-men" id={{product.id}}>
+								<div class="product-chr-info chr mx-auto" style="height:600px">
+									<div class="thumbnail ">
+										<!--<a href="/singleproduct">-->
+											<img alt="Card image cap" src="{{product.image.url}}" style="height:300px">
+										<!--</a>-->
+									</div>
+									<div class="caption id={{product.id}}">
+										<h4 style="height:60px">{{product.title}}</h4>
+										<p>{{product.author}}</p>
+										<div class="matrlf-mid">
+											<ul class="rating">
+												<li>
+													<a href="#">
+														<span aria-hidden="true" class="fa fa-star yellow-star"></span>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span aria-hidden="true" class="fa fa-star yellow-star"></span>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span aria-hidden="true" class="fa fa-star yellow-star"></span>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span aria-hidden="true" class="fa fa-star gray-star"></span>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span aria-hidden="true" class="fa fa-star gray-star"></span>
+													</a>
+												</li>
+											</ul>
+											<ul class="price-list">
+												<li style="color:#F87217;font-size:15px">Price: ₹ {{product.price}}</li>
+												<li>
+												</li>
+											</ul>
+											<div class="clearfix"> </div>
+										</div>
+
+
+											<form action="/shop#{{product.id}}" method="POST" class="button-block col-2">
+												{% csrf_token %}
+												<input hidden name="product" type="text" value="{{product.id}}">
+												<input name="add" type="hidden" value="1">
+												<input name="chr_item" type="hidden" value="{{product.name}}">
+												<input name="amount" type="hidden" value="{{product.price}}">
+												<button class="chr-cart pchr-cart" type="submit">Add to cart
+													<i aria-hidden="true" class="fa fa-cart-plus"></i>
+												</button>
+												<a data-target="#myModal1" data-toggle="modal" href="/shop"></a>
+											</form>
+
+                                     </div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							<!-- //row3 -->
+							<div class="clearfix"></div>
+						</div>
+						<!-- //product-sec1 -->
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!--// Shop -->
+		<script>
+		chr.render();
+		chr.cart.on('new_checkout', function (evt) {
+			var items, len, i;
+			if (this.subtotal() > 0) {
+				items = this.items();
+				for (i = 0, len = items.length; i < len; i++) {}
+			}
+		});
+		</script>
+
+ {% endblock %}

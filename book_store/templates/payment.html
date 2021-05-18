@@ -1,0 +1,128 @@
+{% extends 'base1.html' %}
+{% block content %}
+<!-- banner -->
+<div class="banner-bg-inner">
+    <!-- banner-text -->
+    <div class="banner-text-inner">
+        <div class="container">
+            <h2 class="title-inner">
+                world of reading
+            </h2>
+
+        </div>
+    </div>
+    <!-- //banner-text -->
+</div>
+<!-- //banner -->
+<!-- breadcrumbs -->
+<div class="crumbs text-center">
+    <div class="container">
+        <div class="row">
+            <ul class="btn-group btn-breadcrumb bc-list">
+                <li class="btn btn1">
+                    <a href="index.html">
+                        <i class="glyphicon glyphicon-home"></i>
+                    </a>
+                </li>
+                <li class="btn btn2">
+                    <a href="/shop">Product Catalogue</a>
+                </li>
+                <li class="btn btn3 btn3a">
+                    <a href="/singleproduct">Single product</a>
+                </li>
+                <li class="btn btn4 btn4a">
+                    <a href="/check-out">Checkout</a>
+                </li>
+                <li class="btn btn5">
+                    <a href="/payment">Payment Details</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--//breadcrumbs ends here-->
+<!--Payment-->
+<div class="innerf-pages section">
+    <div class="container">
+        <div class="privacy about">
+            <h4 class="rad-txt">
+                <span class="abtxt1">payment</span>
+                <span class="abtext"> details</span>
+            </h4>
+            <!--/tabs-->
+            <div class="responsive_tabs innfpage-tabs">
+                <div id="horizontalTab">
+                    <ul class="resp-tabs-list">
+                        <li>Cash on delivery (COD)</li>
+                        <li>Razorpay Account</li>
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!--/tab_one-->
+                        <div class="tab1">
+                            <div class="pay_info">
+                                <div class="vertical_post check_box_fpay">
+                                    <h5>COD - Now Available</h5>
+                                    <div class="checkbox">
+                                        <div class="check_box_one cashon_delivery">
+                                            <label class="anim">
+                                                <input type="checkbox" class="checkbox">
+                                                <span> We also accept Credit/Debit card on delivery. Please Check with the agent.</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <form method="post" action="/">
+                                        {% csrf_token %}
+
+                                    <div class="btn-group col-lg-2 btn btn-success  btn-group-lg">
+                                        <a type="submit" style="color:black;height:25px"
+                                           href="/"><b>Confirm Order</b></a></div>
+                                        </form>
+                                    <hr>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--//tab_one-->
+                        <div class="tab4">
+                            <div class="pay_info">
+                                <div class="col-md-6 tab-grid">
+                                    <p>Razorpay securely to complete your payment.</p>
+                                </div>
+
+
+                                <div class="center">
+                                    <form class="text-center border border-light p-5" action="/" method="POST">
+                                        {% csrf_token %}
+                                        <!-- RAZORPAY INTEGRATION HERE --> <!--amount 500.00 -->
+                                        <script src="https://checkout.razorpay.com/v1/checkout.js"
+                                                data-key="rzp_test_7GYde5zznF6bPK"
+                                                data-amount="70000"
+                                                data-currency="INR"
+                                                data-order_id="{{payment.id}}"
+                                                data-buttontext="Pay with Razorpay"
+                                                data-name="Razorpay gateway"
+                                                data-description="The Book Bizz"
+                                                data-image="https://static.toiimg.com/thumb/msid-80706719,width-1600,resizemode-4/80706719.jpg"
+                                                data-prefill.name="Priyanka"
+                                                data-prefill.email="priyanka@gmail.com"
+                                                data-theme.color="#F37254"></script>
+
+                                    </form>
+                                </div>
+                                    <div class="container">
+                                        <a style="color:green" href="/shop">continue shopping!!!</a></div>
+                                </div>
+                            <div class="clearfix"></div>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//tabs-->
+                </div>
+
+            </div>
+        </div>
+        <!-- //payment -->
+
+        {% endblock %}
