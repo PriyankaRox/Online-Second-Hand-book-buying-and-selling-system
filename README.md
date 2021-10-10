@@ -7,5 +7,4 @@ step3 creating a django admin, run django manage.py createsuperuser
       username: toshiba password:1234
 step4 run the project python manange.py runserver
 
-in this project two things are create base.html, index.html for E-shop
-and bse1.html, index1.html for our main project second hand book
+
