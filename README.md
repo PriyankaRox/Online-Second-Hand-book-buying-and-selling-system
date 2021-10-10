@@ -1,4 +1,4 @@
-# Online-Second-Hand-Book
+# Online-Second-Hand-Book-selling-system
 
 Step1 create new project in pycharm, install django
 step2 create new django project 
