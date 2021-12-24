@@ -1,0 +1,320 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load cart %}
+<html>
+{% block content %}
+		<!-- //navbar ends here -->
+		<!-- banner -->
+			<div class="banner-bg-inner">
+			<!-- banner-text -->
+			<div class="banner-text-inner">
+				<div class="container">
+					<h2 class="title-inner">
+						world of reading
+					</h2>
+
+				</div>
+			</div>
+			<!-- //banner-text -->
+		</div>
+		<!-- //banner -->
+
+		<!-- Shop -->
+		<div class="innerf-pages section">
+			<div class="container-cart">
+				<!-- product left -->
+<div class="col-lg-3">
+
+	<div class="list-group">
+	<h4 align="center" class="list-group-item active">Category</h4><br>
+		<a href="/shop" class="list-group-item list-group-item-info ">All Books</a>
+		{% for category in categories %}
+		<a href="/shop/?category={{category.id}}" class="list-group-item list-group-item-info ">{{category.name}}</a>
+		{% endfor %}
+	</div>
+
+</div>
+
+				<!-- //product left -->
+				<!-- product right -->
+
+				<div class="left-ads-display col-md-9"  >
+					<div class="wrapper_top_shop" >
+						<!-- product-sec1 -->
+						<div class="product-sec1" >
+							<!-- row1-->
+							<div id="products" >
+							{%for product in products %}
+							<div class="col-md-3 product-men" id="{{product.id}}"  style=" height: 49rem;">
+								<div class="product-chr-info chr " >
+									<div class="thumbnail">
+										<a href="view_p/{{product.id}}">
+											<img src="{{product.image.url}}" id="qv{{product.id}} " alt="">
+										</a>
+									</div>
+									<div class="caption">
+										<h4>{{product.name}}</h4>
+										<p> &#8377 {{product.price}}</p>
+										<!--{{product | is_in_cart:request.session.cart}}-->
+										<div class="matrlf-mid">
+
+											<div class="card-footer p-0 ">
+												{% if product|is_in_cart:request.session.cart %}
+												<div class="row row-no-gutter  ">
+													<form action="/shop#{{product.id}}" method="post" >
+														{% csrf_token %}
+														<p>{{product.stock}}</p>
+														<input hidden type="text" name="product" value="{{product.id}}">
+														<input hidden type="text" name="remove" value='True'>
+														<input type="submit" value="-" class="col-2 btn btn-block btn-danger">
+													</form>
+													<div class="text-center col"><b>{{product|cart_quantity:request.session.cart}} in cart</b></div>
+
+													<form action="/shop#{{product.id}}" method="post" >
+														{% csrf_token %}
+														<input hidden type="text" name="product" value="{{product.id}}">
+														<input type="submit" value="+" class="col-2 btn btn-block btn-success">
+													</form>
+												</div>
+												{% else %}
+												<form action="/shop#{{product.id}}" method="post" class="btn-block">
+											{% csrf_token %}
+											<input hidden type="text" name="product" value="{{product.id}}">
+											<button type="submit" class="chr-cart pchr-cart">
+									<i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+										</form>
+										{% endif %}
+
+											</div>
+
+											<div class="clearfix"> </div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+								</div>
+
+
+							<div class="clearfix"></div>
+
+						</div>
+
+						<!-- //product-sec1 -->
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+
+			</div>
+		</div>
+		<!--// Shop -->
+ <!-- footer -->
+<div class="footer-bottom section">
+            <div class="container">
+                <!-- newsletter -->
+                <!<div class="subscribe-main section-w3layouts text-center">
+                    <h4 class="rad-txt">
+                        <span class="abtxt1">keep yourself</span>
+                        <span class="abtext">updated</span>
+                    </h4>
+
+                <!-- footer grids-->
+                <div class="footer-cpy">
+                    <!-- footer-grid1 -->
+                    <div class="col-md-3 col-sm-6 footer-logo">
+                        <h3>
+                            <a href="index.html">Boomerang Books !</a>
+                        </h3>
+                        <h4>about us</h4>
+                        <p>E-commerce website for online buying and selling of second hand books.</p>
+                    </div>
+                    <!-- //footer-grid1 -->
+                    <!-- footer-grid2 -->
+                    <div class="col-md-3 col-sm-6 footer-nav text-center">
+                        <h4>navigation</h4>
+                        <ul>
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="about.html">About us</a>
+                            </li>
+                            <li>
+                                <a href="shop.html">shop</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">contact us</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- footer-grid4 -->
+                    <div class="col-md-3 col-sm-6 contact-foot text-right">
+                        <h4>contact us</h4>
+                        <ul>
+                            <li>
+                                <span class="fa fa-home"></span>
+                                Gandhi nagar Dharwad Karnataka
+                                <br> India
+                            </li>
+                            <li>
+                                <span class="fa fa-phone"></span>
+                                9898767654
+                            </li>
+                            <li>
+                                <span class="fa fa-envelope"></span>
+                                <a href="mailto:info@example.com">boomerangbooks@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //footer-grid4 -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //footer-grids -->
+                <!-- footer social -->
+                <div class="footer-social text-center">
+                    <h4>stay connected</h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-facebook icon_facebook"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-twitter icon_twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-instagram icon_instagram"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-google-plus icon_g_plus"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //footer social -->
+            </div>
+            <!-- //footer container -->
+        </div>
+        <!-- //footer -->
+        <div class="cpy-right">
+            <p>Looking for great read? follow
+                <a href="#">@boomerangbooks</a>
+            </p>
+        </div>
+    </div>
+<!- //home -->
+	<!-- js -->
+	<!-- Common js -->
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<!--// Common js -->
+	<!-- cart-js -->
+	<script src="{% static 'js/minicart.js' %}"></script>
+	<script>
+		chr.render();
+
+		chr.cart.on('new_checkout', function (evt) {
+			var items, len, i;
+
+			if (this.subtotal() > 0) {
+				items = this.items();
+
+				for (i = 0, len = items.length; i < len; i++) {}
+			}
+		});
+	</script>
+	<!-- //cart-js -->
+	<!-- price range (top products) -->
+	<script src="{% static 'js/jquery-ui.js' %}"></script>
+	<script>
+		//<![CDATA[ 
+		$(window).load(function () {
+			$("#slider-range").slider({
+				range: true,
+				min: 0,
+				max: 9000,
+				values: [50, 6000],
+				slide: function (event, ui) {
+					$("#amount").val(&#8377 + ui.values[0] + " - &#8377" + ui.values[1]);
+				}
+			});
+			$("#amount").val("&#8377" + $("#slider-range").slider("values", 0) + " - &#8377" + $("#slider-range").slider("values", 1));
+
+		});
+	</script>
+	<!-- //price range (top products) -->
+
+	<!-- dropdown nav -->
+	<script>
+		$(document).ready(function () {
+			$(".dropdown").hover(
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+		});
+	</script>
+	<!-- //dropdown nav -->
+	<!--search jQuery-->
+	<script src="{% static 'js/main.js' %}"></script>
+	<!--search jQuery-->
+
+	<!-- Scrolling Nav JavaScript -->
+	<script src="{% static 'js/scrolling-nav.js' %}"></script>
+	<!-- //fixed-scroll-nav-js -->
+	<!--//scripts-->
+
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+	<!-- start-smoth-scrolling -->
+	<script src="{% static 'js/move-top.js' %}"></script>
+	<script src="{% static 'js/easing.js' %}"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- start-smoth-scrolling -->
+	<!-- here stars scrolling icon -->
+	<script>
+		$(document).ready(function () {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<!-- //here ends scrolling icon -->
+	<!-- smoothscroll -->
+	<script src="{% static 'js/SmoothScroll.min.js' %}"></script>
+	<!-- //smoothscroll -->
+{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,530 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="zxx">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <!-- //navbar ends here -->
+        <!-- banner -->
+        <div class="banner-bg-inner">
+            <!-- banner-text -->
+            <div class="banner-text-inner">
+                <div class="container">
+                    <h2 class="title-inner">
+                        world of reading
+                    </h2>
+
+                </div>
+            </div>
+            <!-- //banner-text -->
+        </div>
+        <!-- about -->
+        <div class="container">
+    {% for x in video %}
+    <!--<h3 class="text-center mt-2 mb-2">{{x.caption}}</h3>-->
+            <br>
+    <video class="" controls="controls">
+        <source src="{{x.video.url}}" type="video/mp4" style="align:"/>
+    </video>
+    {% endfor %}
+</div>
+    <!-- //about-right-grid ends here -->
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- //about ends here -->
+        <!-- about bottom -->
+        <div class="about-bottom section">
+            <div class="container-fluid">
+                <h4 class="rad-txt">
+                    <span class="abtxt1">wonderful</span>
+                    <span class="abtext"> world of reading</span>
+                </h4>
+                <!-- about-bottom grid1 -->
+                <div class="col-md-6 about-bottom-right">
+                    <p class="abt-p">Dear Friends!
+                    Welcome to Second Hand Book Shop. We provide all types
+                        of books such as school books, college books, novels,
+                        comics, horror, fantacy etc.
+                    </p>
+                    <div class="col-md-6 col-sm-6 col-xs-6 services-w3ls">
+                        <div class="ab1">
+                            <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                                <span class="fa fa-book" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                                <h5>Horror</h5>
+                                <p>World of horror book buffet! part of literary world </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="ab1">
+                            <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                                <span class="fa fa-book" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                               <h5>magazines</h5>
+                                <p>We store benificial magzines all time</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="ab1">
+                            <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                                <span class="fa fa-book" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                                <h5>Fiction</h5>
+                                <p>Imaginery and imaginations of book bundle</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="ab1">
+                            <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                                <span class="fa fa-book" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                                <h5>Fantacy</h5>
+                                <p>A magic system that spell your thought</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 services-w3ls service2">
+                        <div class="ab1">
+                            <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                                <span class="fa fa-book" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                                <h5>Text Books</h5>
+                                <p>School as well as college text books collection</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="ab1">
+                            <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                                <span class="fa fa-book" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                                <h5>Novels</h5>
+                                <p>Best fiction narrative & intimate human experiences</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="ab1">
+                            <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                                <span class="fa fa-book" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                                <h5>magazines</h5>
+                                <p>Social media vibes and content are kept</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="ab1">
+                            <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                                <span class="fa fa-book" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                                <h5>Comic Books</h5>
+                                <p>Comic art in the form of sequence</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //about-bottom grid1 ends here -->
+                <div class="col-md-6 home-about2">
+                <!-- about-bottom grid2 -->
+                <div class="col-md-12 col-sm-8 col-xs-6 bg-right"></div>
+
+                <div class="clearfix"></div>
+               </div>
+                <!-- //about-bottom grid3 ends here -->
+                <!-- //Numscroller -->
+                <div class="clearfix"></div>
+            </div>
+            <!-- //about container ends here-->
+        </div>
+        <!--//about bottom ends here-->
+        <!-- team -->
+        <div id="team" class="team section">
+            <div class="team-container">
+                <div class="team-row">
+                    <!-- team grid1 -->
+                    <div class="col-md-5 team-grid-left">
+                        <!-- team individual grid -->
+                        <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                            <div class="team-effect">
+                                <img src="{% static 'images/book1.jpg' %}" alt="img" class="img-responsive">
+                                <div class="social-icon">
+                                    <a href="#" class="social-button twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-button facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-button google">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="team-text">
+
+
+                                <p>“The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid.”</p>
+                                    <h4>― Jane Austen</h4>
+                            </div>
+                        </div>
+                        <!-- //team individual grid -->
+                        <!-- team individual grid -->
+                        <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                            <div class="team-text">
+
+
+                                <p>“Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can be beaten.”</p>
+                                <h4>― Neil Gaiman</h4>
+                            </div>
+                            <div class="team-effect">
+                                <img src="{% static 'images/book2.jpg' %}" alt="img" class="img-responsive">
+                                <div class="social-icon">
+                                    <a href="#" class="social-button twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-button facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-button google">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- //team individual grid -->
+                        </div>
+                    </div>
+                    <!-- //team-grid1 ends here-->
+                    <!--team-grid2 -->
+                    <div class="col-md-2 col-sm-2 team-mid-txt text-center">
+                        <span>Keep Calm And Read Books</span>
+
+                    </div>
+                    <!--//team-grid2 ends here-->
+                    <!-- team grid3 -->
+                    <!-- team individual grid -->
+                    <div class="col-md-5 team-grid-right">
+                        <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                            <div class="team-text">
+
+
+                                <p>“If you only read the books that everyone else is reading, you can only think what everyone else is thinking.”</p>
+                                <h4>― Haruki Murakami</h4>
+                            </div>
+                            <div class="team-effect">
+                                <img src="{% static 'images/book3.jpg' %}" alt="img" class="img-responsive">
+                                <div class="social-icon">
+                                    <a href="#" class="social-button twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-button facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-button google">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //team individual grid -->
+                        <!-- team individual grid -->
+                        <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                            <div class="team-effect">
+                                <img src="{% static 'images/book4.jpg' %}" alt="img" class="img-responsive">
+                                <div class="social-icon">
+                                    <a href="#" class="social-button twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-button facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-button google">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="team-text">
+
+
+                                <p>“If one cannot enjoy reading a book over and over again, there is no use in reading it at all.”</p>
+                                <h4>― Oscar Wilde</h4>
+                            </div>
+                        </div>
+                        <!-- //team individual grid -->
+                        <div class="clearfix"> </div>
+                    </div>
+                    <!-- //team grid3 -->
+                    <div class="clearfix"> </div>
+                </div>
+                <!-- //team-row ends here -->
+            </div>
+            <!-- // team container ends here -->
+        </div>
+
+        <!--testimonials -->
+
+            <div class="container">
+                <h4 class="rad-txt">
+                    <span class="abtxt1">Categories</span>
+                    <span class="abtext">Available</span>
+                </h4>
+                <div id="Carousel" class="slide carousel">
+                    <!-- Carousel items -->
+                    <canvas id="myChart"></canvas>
+                <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Novels', 'Text Books', 'Comics', 'Fantacy', 'Horror', 'Fiction'],
+                        datasets: [{
+                            label: 'Categories in our products',
+                            data: [12, 9, 10, 6, 3, 5],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                </script>
+
+
+                        </div>
+
+                        </div>
+                    </div>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <br>
+        <!-- //testimonials-->
+        <!-- footer-layouts -->
+
+        <!-- //footer-layouts -->
+        <!-- footer -->
+        <div class="footer-bottom section">
+            <div class="container">
+                <!-- newsletter -->
+                <!<div class="subscribe-main section-w3layouts text-center">
+                    <h4 class="rad-txt">
+                        <span class="abtxt1">keep yourself</span>
+                        <span class="abtext">updated</span>
+                    </h4>
+
+                <!-- footer grids-->
+                <div class="footer-cpy">
+                    <!-- footer-grid1 -->
+                    <div class="col-md-3 col-sm-6 footer-logo">
+                        <h3>
+                            <a href="index.html">Boomerang Books !</a>
+                        </h3>
+                        <h4>about us</h4>
+                        <p>E-commerce website for online buying and selling of second hand books.</p>
+                    </div>
+                    <!-- //footer-grid1 -->
+                    <!-- footer-grid2 -->
+                    <div class="col-md-3 col-sm-6 footer-nav text-center">
+                        <h4>navigation</h4>
+                        <ul>
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="about.html">About us</a>
+                            </li>
+                            <li>
+                                <a href="shop.html">shop</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">contact us</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- //footer-grid3 -->
+                    <!-- footer-grid4 -->
+                    <div class="col-md-3 col-sm-6 contact-foot text-right">
+                        <h4>contact us</h4>
+                        <ul>
+                            <li>
+                                <span class="fa fa-home"></span>
+                                Gandhi nagar Dharwad Karnataka
+                                <br> India
+                            </li>
+                            <li>
+                                <span class="fa fa-phone"></span>
+                                9898767654
+                            </li>
+                            <li>
+                                <span class="fa fa-envelope"></span>
+                                <a href="mailto:info@example.com">boomerangbooks@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //footer-grid4 -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //footer-grids -->
+                <!-- footer social -->
+                <div class="footer-social text-center">
+                    <h4>stay connected</h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-facebook icon_facebook"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-twitter icon_twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-instagram icon_instagram"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-google-plus icon_g_plus"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //footer social -->
+            </div>
+            <!-- //footer container -->
+        </div>
+        <!-- //footer -->
+        <div class="cpy-right">
+            <p>Looking for great read? follow
+                <a href="#">@boomerangbooks</a>
+            </p>
+        </div>
+    </div>
+    <!-- //home -->
+    <!-- js -->
+    <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+    <!-- //js -->
+    <!-- dropdown nav -->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+    <!--search jQuery-->
+    <script src="{% static 'js/main.js' %}"></script>
+    <!--search jQuery-->
+    <!-- cart-js -->
+    <script src="{% static 'js/minicart.js' %}"></script>
+    <script>
+        chr.render();
+
+        chr.cart.on('new_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) {}
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+    <!-- gallery desoslide -->
+    <script src="{% static 'js/jquery.desoslide.min.js' %}"></script>
+    <script src="{% static 'js/demo.js"></script>
+    <!-- gallery desoslide -->
+    <!-- Scrolling Nav JavaScript -->
+    <script src="{% static 'js/scrolling-nav.js' %}"></script>
+    <!-- //fixed-scroll-nav-js -->
+    <!-- start-smooth-scrolling -->
+    <script src="{% static 'js/move-top.js' %}"></script>
+    <script src="{% static 'js/easing.js' %}"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth-scrolling-of-move-up -->
+    <script>
+        $(document).ready(function () {
+            /*
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear' 
+            };
+            */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <script src="{% static 'js/SmoothScroll.min.js' %}"></script>
+    <!-- //smooth-scrolling-of-move-up -->
+    <!-- about bottom grid Numscroller -->
+    <script src="{% static 'js/numscroller-1.0.js' %}"></script>
+    <!-- //about bottom grid Numscroller -->
+    <!-- Bootstrap core JavaScript
+ ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}

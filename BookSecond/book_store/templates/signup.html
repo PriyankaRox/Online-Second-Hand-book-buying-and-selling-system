@@ -1,0 +1,336 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+{% block content %}
+<div class="crumbs text-center">
+            <div class="container">
+                <div class="row">
+                    <ul class="btn-group btn-breadcrumb bc-list">
+                        <li class="btn btn1">
+                            <a href="index.html">
+                                <i class="glyphicon glyphicon-home"></i>
+                            </a>
+                        </li>
+                        <li class="btn btn2">
+                            <a href="login.html">sign in & sign up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--//breadcrumbs ends here-->
+
+<div class="login-form section text-center">
+    <div class="container " >
+        <div class="container" style="display:block; text-align:center">
+
+                <h4 class="rad-txt">
+                    <span class="abtxt1">Sign in</span>
+                    <span class="abtext">sign up</span>
+                </h4>
+
+
+
+        <div class="col-lg-8 rounded mx-auto border pt-6 " >
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Sign Up</div>
+                    <div style="float:right; font-size: 85%; position: relative; top:-10px">
+                    <a id="signinlink" href="/login" >Log In</a>
+                </div>
+            </div>
+            <div class="panel-body">
+            <form  action="/signup" class="form-horizontal" method="POST">
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- firstname -->
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">First Name</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <input type="text" class="form-control" name="first_name" value="{{values.first_name}}"
+                                placeholder="First Name" required="">
+                    </div>
+                </div>
+
+                <!-- last name -->
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Last Name</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <input type="text" class="form-control" name="last_name"
+                               id="" value="{{values.last_name}}"
+                               placeholder="Last Name" required="">
+                    </div>
+                </div>
+                <!-- phone -->
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Phone</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                    <input type="text" name="phone"  class="form-control" required=""
+                    value="{{values.phone}}" placeholder="9988776655" pattern="[0-9]{10}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Address</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                    <input type="text" name="address"  class="form-control" required=""
+                    value="{{values.address}}" placeholder="Address">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">City</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                    <input type="text" name="city"  class="form-control" required=""
+                    value="{{values.city}}" placeholder="City">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Landmark</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                    <input type="text" name="landmark"  class="form-control" required=""
+                    value="{{values.landmark}}" placeholder="Landmark">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Pincode</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                    <input type="text" name="pin"  class="form-control" required=""
+                    value="{{values.pin}}" placeholder="Pin code" pattern="[0-9]{6}">
+                    </div>
+                </div>
+                <!-- email -->
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Email</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <input  type="email" name="email"
+                        value="{{values.email}}" required=""
+                        class="form-control" placeholder="abc@gmail.com">
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Password</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <input type="password" name="password"
+                          required=""
+                         class="form-control" placeholder="********">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">Confirm Password</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <input type="password" name="confirm"
+                          required=""
+                         class="form-control" placeholder="********">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!--<label class="col-md-3 col-sm-3 col-xs-3 control-label">Captcha</label>-->
+                    <div class="g-recaptcha" data-sitekey="6Lf5gxIbAAAAAJUA-PTnpbFlQilbImMK_Lbl_UiK" align="center" required></div>
+                </div>
+                <div class="form-group">
+                    <!-- Button -->
+                    <div class="signup-btn">
+                        <div class="signup-btn" style="text-align:center;">
+                            <input class="btn btn-info" type="submit" value="Create An Account">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    </div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- footer -->
+    <div class="footer-bottom section">
+            <div class="container">
+                <!-- newsletter -->
+                <!<div class="subscribe-main section-w3layouts text-center">
+                    <h4 class="rad-txt">
+                        <span class="abtxt1">keep yourself</span>
+                        <span class="abtext">updated</span>
+                    </h4>
+                                   <!-- footer grids-->
+                <div class="footer-cpy">
+                    <!-- footer-grid1 -->
+                    <div class="col-md-3 col-sm-6 footer-logo">
+                        <h3>
+                            <a href="index.html">Boomerang Books !</a>
+                        </h3>
+                        <h4>about us</h4>
+                        <p>E-commerce website for online buying and selling of second hand books.</p>
+                    </div>
+                    <!-- //footer-grid1 -->
+                    <!-- footer-grid2 -->
+                    <div class="col-md-3 col-sm-6 footer-nav text-center">
+                        <h4>navigation</h4>
+                        <ul>
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="about.html">About us</a>
+                            </li>
+                            <li>
+                                <a href="shop.html">shop</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">contact us</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- footer-grid4 -->
+                    <div class="col-md-3 col-sm-6 contact-foot text-right">
+                        <h4>contact us</h4>
+                        <ul>
+                            <li>
+                                <span class="fa fa-home"></span>
+                                Gandhi nagar Dharwad Karnataka
+                                <br> India
+                            </li>
+                            <li>
+                                <span class="fa fa-phone"></span>
+                                9898767654
+                            </li>
+                            <li>
+                                <span class="fa fa-envelope"></span>
+                                <a href="mailto:info@example.com">boomerangbooks@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //footer-grid4 -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //footer-grids -->
+                <!-- footer social -->
+                <div class="footer-social text-center">
+                    <h4>stay connected</h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-facebook icon_facebook"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-twitter icon_twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-instagram icon_instagram"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-google-plus icon_g_plus"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //footer social -->
+            </div>
+            <!-- //footer container -->
+        </div>
+        <!-- //footer -->
+        <div class="cpy-right">
+            <p>Looking for great read? follow
+                <a href="#">@boomerangbooks</a>
+            </p>
+        </div>
+    </div>
+<!-- //home -->
+    <!-- js -->
+    <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+    <!-- //js -->
+    <!--search jQuery-->
+    <script src="{% static 'js/main.js' %}"></script>
+    <!--search jQuery-->
+    <!-- cart-js -->
+    <script src="{% static 'js/minicart.js' %}"></script>
+    <script>
+        chr.render();
+
+        chr.cart.on('new_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) {}
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+
+    <!-- dropdown nav -->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="{% static 'js/scrolling-nav.js' %}"></script>
+    <!-- //fixed-scroll-nav-js -->
+    <!-- start-smooth-scrolling -->
+    <script src="{% static 'js/move-top.js' %}"></script>
+    <script src="{% static 'js/easing.js' %}"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth-scrolling-of-move-up -->
+    <script>
+        $(document).ready(function () {
+            /*
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+            */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <script src="{% static 'js/SmoothScroll.min.js' %}"></script>
+    <!-- //smooth-scrolling-of-move-up -->
+    <!-- Bootstrap core JavaScript
+ ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+{% endblock %}</html>

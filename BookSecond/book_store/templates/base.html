@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="zxx">
+
+<head>
+    <title>online second hand book selling system</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Chronicle Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+    <!-- Custom Theme files -->
+    <link href="{% static 'css/bootstrap.css' %}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'css/bootstrap.css.map' %}" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- shop css -->
+
+    <link href="{% static 'css/shop.css' %}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'css/checkout.css' %}" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="{% static 'css/easy-responsive-tabs.css' %}" type="text/css" media="all" />
+    <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
+    <!-- font-awesome icons -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <!-- logo -->
+    <link href="//fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <!-- titles -->
+    <link href="//fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+    <!-- body -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- //online-fonts -->
+
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <div id="home">
+        <!-- header -->
+        <!-- navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="main-nav">
+                <div class="container">
+
+                    <div class="navbar-header page-scroll">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Boomerang Books !</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1>
+                            <a class="navbar-brand" href="{% url 'index' %}">Boomerang Books !</a>
+                        </h1>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse nav-right">
+                        <ul class="nav navbar-nav navbar-left cl-effect-15">
+                            <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+
+                            {%  if not request.session.customer %}
+                            <li>
+                                <a href="{% url 'index' %}">Home</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'login' %}" title="SignIn & SignUp">
+                                    SIGNIN
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'signup' %}" title="SignIn & SignUp">
+                                    SIGNUP
+                                </a>
+                            </li>
+
+
+                            {% else %}
+                            <li class="hidden">
+                                <a class="page-scroll" href="#page-top"></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'index' %}">Home</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">shop
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{% url 'shop' %}">product catalog</a>
+                                    </li>
+                                    <li>
+                                        <a href="/order">My Orders</a>
+                                    </li>
+                                    <li>
+                                        <a href="/sview">My Books</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Menu
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/sell">Sell your book</a>
+                                    </li>
+                                    <li>
+                                        <a href="/feedback">Feedback</a>
+                                    </li>
+                                    <!--<li>
+                                        <a href="/sview">My Books</a>
+                                    </li>-->
+
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{% url 'about' %}" title="About Us">
+                                    About Us
+                                </a>
+                                </li>
+                            <li>
+                                <a href="{% url 'logout' %}" title="SignIn & SignUp">
+                                    SIGNOUT
+                                </a>
+                                </li>
+
+
+                        </ul>
+                        {% endif %}
+                        <!-- shopping cart -->
+                        <div class="cart-mainf">
+                            <div class="chrcart chrcart2 cart cart box_1">
+                                <form action="/cart" method="post" class="last">
+                                    {% csrf_token %}
+
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="display" value="1">
+                                    <button class="top_chr_cart" type="submit" name="submit" value="">
+                                        <span class="badge label-pill label-success">
+                                        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                                        {{request.session.cart.keys|length}}</span>
+                                    </button>
+
+                                </form>
+
+                            </div>
+                        </div>
+                        <!-- //search-bar ends here -->
+                        <!-- shopping cart -->
+                        <!--<div class="cart-mainf">
+                            <div class="chrcart chrcart2 cart cart box_1">
+                                <form action="/cart" method="post" class="last">
+                                    {% csrf_token %}
+
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="display" value="1">
+                                    <button class="top_chr_cart" type="submit" name="submit" value="">
+                                        <span class="badge label-pill label-success">
+                                        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                                        {{request.session.cart.keys|length}}</span>
+                                    </button>
+
+                                </form>
+
+                            </div>
+                        </div>
+                        <!- //shopping cart ends here -->
+                    </div>
+                    <!-- /.navbar-collapse -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- /.container -->
+            </div>
+        </nav>
+
+      {% block content %}
+
+      {% endblock %}
+    </div>
+</body></html>
